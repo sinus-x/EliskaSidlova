@@ -1,40 +1,45 @@
+<img title="Eliška Šídlová" alt="Eliška Šídlová" src="avatar.jpg" width="200px" height="200px" style="display:inline-block;border-radius:100%;float:right;margin:0 0 1em 1em;" />
+
 # Eliška Šídlová
 
-Velmi primitivní Discord bot, kterého jsme vyvinuli pro jednorázové přejmenování všech uživatelů na serveru.
+Very primitive Discord bot, which was developed over one evening for one-time rename of all users on our server.
 
-**Jak to funguje?**
+[Dostupné česky](README.cs.md)
 
-Soubory `{fe,}male_{sur,}names.py` obsahují seznamy českých jmen a příjmení. Pro každého uživatele se bot rozhodne, zda dostane mužské či ženské jméno a takové mu přiřadí.
+**How does it work?**
 
-**Jak to zprovoznit?**
+Files `{fe,}male_{sur,}names.py` contain lists of czech names and surnames. For every user, the bot desides wheter it will assign a male or female name and then picks one.
 
-Na [Discord Developers](https://discord.com/developers) vytvořte nového bota, pozvěte ho na svůj server a zkopírujte si token.
+**How to make it work?**
 
-Zkopírujte repozitář:
+Create new bot on [Discord Developers](https://discord.com/developers), copy its token and ivite it on your server.
+
+Copy this repository:
 ```bash
-git clone https://.git
+git clone git@github.com:sinus-x/EliskaSidlova.git
+cd EliskaSidlova
 ```
 
-Vytvořte soubor `info.py` a do něj token vložte ve formátu
+Create file `info.py` and insert neccesary information:
 ```py
 token = "my-secret.discord.token"
 ```
 
-Spusťte ho
+Run the bot with
 ```bash
 python bot.py
 ```
 
-**Proč to jméno?**
+**Why the name?**
 
-Takové si bot vybral pro sebe při prvním spuštění.
+The bot picked it itself when it was run for the first time.
 
-**Zdroj dat**
+**Data source**
 
-Seznam jmen a příjmení pochází z webu Ministerstva vnitra České republiky. Kvůli nařízení GDPR o ochraně osobních údajů již data nejsou k dispozici, stále se k nim jde ale dostat přes WebArchive.
+The lists come from Czech republic's Home Office website. Because of the GDPR regulation the data is not available anymore, but the old, 2006 version can be retrieved via the Web Archive.
 
-**Licence**
+**License**
 
-¯\\\_(ツ)\_/¯
+[MIT](LICENSE).
 
-Autorem fotografie/avataru je Christopher Campbell, viz [Unsplash](https://unsplash.com/photos/rDEOVtE7vOs).
+Author of the photo/avatar is Christopher Campbell, see the [Unsplash post](https://unsplash.com/photos/rDEOVtE7vOs).
