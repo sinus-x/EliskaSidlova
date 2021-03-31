@@ -113,7 +113,7 @@ async def rename(ctx):
         name = random.choice(names)
         surname = random.choice(surnames)
         surname = surname[0] + surname[1:].lower()
-        log("Setting name of", member, "to", name, surname)
+        log(f"Setting name of {member} to {name} {surname}.")
 
         try:
             await member.edit(nick=f"{name} {surname}")
@@ -142,7 +142,7 @@ async def restore(ctx):
 
         if str(member.id) in changed.keys():
             nickname = changed[str(member.id)]
-            log("Resetting name of", member, "to", nickname)
+            log("Resetting name of {member} to {nickname}")
         else:
             nickname = None
             log("Resetting name of", member)
