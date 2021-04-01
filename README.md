@@ -8,11 +8,11 @@ Very primitive Discord bot, which was developed over one evening for one-time re
 
 **How does it work?**
 
-Files `{fe,}male_{sur,}names.py` contain lists of czech names and surnames. For every user, the bot desides wheter it will assign a male or female name and then picks one.
+Files `{fe,}male_{sur,}names.py` contain lists of czech names and surnames. For every user, the bot decides whether it will assign a male or female name and then picks one.
 
 **How to make it work?**
 
-Create new bot on [Discord Developers](https://discord.com/developers), copy its token and ivite it on your server.
+Create new bot on [Discord Developers](https://discord.com/developers), copy its token and invite it on your server.
 
 Copy this repository:
 ```bash
@@ -32,7 +32,7 @@ python bot.py
 
 **Why the name?**
 
-The bot picked it itself when it was run for the first time.
+The bot picked it itself when it was run for the first time. It can be roughly translated as "Elisabeth Awl".
 
 **Data source**
 
