@@ -12,7 +12,7 @@ Soubory `{fe,}male_{sur,}names.py` obsahují seznamy českých jmen a příjmen�
 
 **Jak to zprovoznit?**
 
-Na [Discord Developers](https://discord.com/developers) vytvořte nového bota, zkopírujte jeho token a pozvěte ho na svůj server.
+Na [Discord Developers](https://discord.com/developers) vytvořte nového bota, zkopírujte jeho token a pozvěte ho na svůj server. *Roli přesuňte zcela nahoru, bez toho nebude mít oprávnění a nikdo přejmenován nebude.*
 
 Naklonujte repozitář:
 ```bash
@@ -22,13 +22,24 @@ cd EliskaSidlova
 
 Vytvořte soubor `info.py` a do něj token vložte ve formátu
 ```py
-token = "my-secret.discord.token"
+token = "my.secret.discord.token"
 ```
 
 Bota spusťte pomocí
 ```bash
 python bot.py
 ```
+
+**Příkazy**
+
+| příkaz   | popis                              |
+|----------|------------------------------------|
+| $help    | zobrazení nápovědy                 |
+| $ping    | zobrazení API latence              |
+| $rename  | změna přezdívek všech uživatelů    |
+| $restore | vrácení jmen a přezdívek uživatelů |
+
+Změna jmen nějakou dobu trvá, naše rychlost byla zhruba 56 uživatelů za minutu.
 
 **Proč to jméno?**
 

@@ -12,7 +12,7 @@ Files `{fe,}male_{sur,}names.py` contain lists of czech names and surnames. For 
 
 **How to make it work?**
 
-Create new bot on [Discord Developers](https://discord.com/developers), copy its token and invite it on your server.
+Create new bot on [Discord Developers](https://discord.com/developers), copy its token and invite it on your server. *Make sure the bot's role is above everyone else, else it won't have the permission to change anything.*
 
 Copy this repository:
 ```bash
@@ -22,13 +22,24 @@ cd EliskaSidlova
 
 Create file `info.py` and insert neccesary information:
 ```py
-token = "my-secret.discord.token"
+token = "my.secret.discord.token"
 ```
 
 Run the bot with
 ```bash
 python bot.py
 ```
+
+**Commands**
+
+| command  | description                          |
+|----------|--------------------------------------|
+| $help    | display help                         |
+| $ping    | display API latency                  |
+| $rename  | change name of all users             |
+| $restore | change names back to their originals |
+
+The renaming will take some time, we observed it to be around 56 members per minute.
 
 **Why the name?**
 
