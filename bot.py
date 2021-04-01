@@ -44,6 +44,7 @@ async def on_error(event, *args, **kwargs):
     log(tb)
 
 
+@commands.is_owner()
 @bot.command()
 async def help(ctx):
     embed = discord.Embed(
@@ -71,6 +72,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 
+@commands.is_owner()
 @bot.command()
 async def ping(ctx):
     await ctx.send("pong: **{:.2f} s**".format(bot.latency))
@@ -89,7 +91,7 @@ async def set_avatar(ctx, *, filename: str):
     try:
         with open(filename, "rb") as image:
             await bot.user.edit(avatar=image.read())
-            print("Avatar set.")
+            log("Avatar set.")
     except FileNotFoundError:
         log("Avatar file not found.")
 
@@ -139,13 +141,12 @@ async def restore(ctx):
 
     members = ctx.guild.members
     for i, member in enumerate(members, 1):
-
         if str(member.id) in changed.keys():
             nickname = changed[str(member.id)]
-            log("Resetting name of {member} to {nickname}")
+            log(f"Resetting name of {member} to {nickname}.")
         else:
             nickname = None
-            log("Resetting name of", member)
+            log(f"Resetting name of {member}.")
 
         try:
             await member.edit(nick=nickname)
@@ -153,10 +154,11 @@ async def restore(ctx):
             log("> Forbidden, skipping.")
 
         if i % 20 == 0 and i > 0:
-            log(f"> Sleeping five seconds to keep the API happy. {i}/{len(changed)}.")
+            log(f"> Sleeping five seconds to keep the API happy. {i}/{len(members)}.")
             await asyncio.sleep(5)
-            log("")
     log("Done.")
 
+
+#
 
 bot.run(token)
