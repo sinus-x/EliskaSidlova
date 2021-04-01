@@ -97,6 +97,19 @@ async def set_avatar(ctx, *, filename: str):
 
 
 @commands.is_owner()
+@bot.command()
+async def send(ctx, channel: discord.TextChannel, *, text: str):
+    log(f"Sending message to #{channel.name}:" + "\n> " + text.replace("\n", "\n> "))
+    message = await channel.send(text)
+    embed = discord.Embed(
+        title=f"Message in #{channel.name}",
+        url=message.jump_url,
+        description=text,
+    )
+    await ctx.send(embed=embed)
+
+
+@commands.is_owner()
 @commands.guild_only()
 @bot.command()
 async def rename(ctx):
