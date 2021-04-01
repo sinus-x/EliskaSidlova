@@ -41,6 +41,7 @@ python bot.py
 | command  | description                          |
 |----------|--------------------------------------|
 | $help    | display help                         |
+| $send #channel {text} | send text to given channel |
 | $ping    | display API latency                  |
 | $rename  | change name of all users             |
 | $restore | change names back to their originals |

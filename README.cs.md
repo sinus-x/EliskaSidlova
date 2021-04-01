@@ -41,6 +41,7 @@ python bot.py
 |----------|------------------------------------|
 | $help    | zobrazení nápovědy                 |
 | $ping    | zobrazení API latence              |
+| $send #channel {text} | poslání textu do zadaného kanálu |
 | $rename  | změna přezdívek všech uživatelů    |
 | $restore | vrácení jmen a přezdívek uživatelů |
 
