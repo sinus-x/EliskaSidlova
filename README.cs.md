@@ -14,10 +14,15 @@ Soubory `{fe,}male_{sur,}names.py` obsahují seznamy českých jmen a příjmen�
 
 Na [Discord Developers](https://discord.com/developers) vytvořte nového bota, zkopírujte jeho token a pozvěte ho na svůj server. *Roli přesuňte zcela nahoru, bez toho nebude mít oprávnění a nikdo přejmenován nebude.*
 
-Naklonujte repozitář:
 ```bash
-git clone https://.git
+# naklonování repozitáře
+git clone git@github.com:sinus-x/EliskaSidlova.git
 cd EliskaSidlova
+# vytvoření venv prostředí; volitelné, ale doporučené
+python3 -m venv .venv
+source .venv/bin/activate
+# nainstalování potřebných balíčků
+python3 -m pip install -r requirements.txt
 ```
 
 Vytvořte soubor `info.py` a do něj token vložte ve formátu

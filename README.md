@@ -14,10 +14,16 @@ Files `{fe,}male_{sur,}names.py` contain lists of czech names and surnames. For 
 
 Create new bot on [Discord Developers](https://discord.com/developers), copy its token and invite it on your server. *Make sure the bot's role is above everyone else, else it won't have the permission to change anything.*
 
-Copy this repository:
+Download the bot:
 ```bash
+# clone repository
 git clone git@github.com:sinus-x/EliskaSidlova.git
 cd EliskaSidlova
+# create venv; optional, but recommended
+python3 -m venv .venv
+source .venv/bin/activate
+# install required packages
+python3 -m pip install -r requirements.txt
 ```
 
 Create file `info.py` and insert neccesary information:
