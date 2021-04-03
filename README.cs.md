@@ -35,6 +35,13 @@ Bota spusťte pomocí
 python bot.py
 ```
 
+| oprávnění        | co ho potřebuje    |
+|------------------|--------------------|
+| Manage nicknames | $rename, $revert   |
+| View channels    | $send              |
+| Send messages    | $send              |
+| Manage messages  | $send (optional)   |
+
 **Příkazy**
 
 | příkaz   | popis                              |

@@ -36,6 +36,13 @@ Run the bot with
 python bot.py
 ```
 
+| permission       | what it's used for |
+|------------------|--------------------|
+| Manage nicknames | $rename, $revert   |
+| View channels    | $send              |
+| Send messages    | $send              |
+| Manage messages  | $send (optional)   |
+
 **Commands**
 
 | command  | description                          |
