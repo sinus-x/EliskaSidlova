@@ -28,9 +28,14 @@ bot = commands.Bot(
 )
 
 
-def log(message: str):
+def log(message: str, error: bool = False):
     now = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    if error:
+        message = "\033[0;31m" + message + "\033[0m"
     print(f"{now} | {message}")
+
+
+#
 
 
 @bot.event
@@ -39,9 +44,20 @@ async def on_ready():
 
 
 @bot.event
+async def on_command_error(ctx, error):
+    tb = traceback.format_exc()
+    if isinstance(error, discord.errors.HTTPException):
+        tb = str(error)
+    log(f"{ctx.author.name} in {ctx.channel.name} | {error}", error=True)
+
+
+@bot.event
 async def on_error(event, *args, **kwargs):
     tb = traceback.format_exc()
-    log(tb)
+    log(tb, error=True)
+
+
+#
 
 
 @commands.is_owner()
@@ -50,14 +66,17 @@ async def help(ctx):
     embed = discord.Embed(
         title="Eliška Šídlová",
         description=(
-            "The bot provides no feedback, "
-            + "it is expected to be run directly from the command line."
+            "I provide no discord-side feedback, "
+            + "you are expected to have access to the command line output."
         ),
     )
     embed.add_field(
         name="$ping",
         value="Display API latency",
-        inline=False,
+    )
+    embed.add_field(
+        name="$send #channel message text",
+        value="Send message to given channel",
     )
     embed.add_field(
         name="$rename",
@@ -69,7 +88,18 @@ async def help(ctx):
         value="Rename members back to their original names/nicknames.",
         inline=False,
     )
+    embed.add_field(
+        name="$set_name new name",
+        value="Change my global name",
+        inline=True,
+    )
+    embed.add_field(
+        name="$set_avatar path/to/file",
+        value="Change my avatar",
+        inline=True,
+    )
     await ctx.send(embed=embed)
+    await ctx.message.delete()
 
 
 @commands.is_owner()
@@ -101,12 +131,18 @@ async def set_avatar(ctx, *, filename: str):
 async def send(ctx, channel: discord.TextChannel, *, text: str):
     log(f"Sending message to #{channel.name}:" + "\n> " + text.replace("\n", "\n> "))
     message = await channel.send(text)
-    embed = discord.Embed(
-        title=f"Message in #{channel.name}",
-        url=message.jump_url,
-        description=text,
+    embed = discord.Embed(description=text)
+    embed.set_footer(
+        text=ctx.author.display_name,
+        icon_url=ctx.author.avatar_url,
     )
+    embed.add_field(
+        name="\u200b",
+        value=f"[Message in #{channel.name}]({message.jump_url})",
+    )
+    embed.timestamp = datetime.datetime.now(tz=datetime.timezone.utc)
     await ctx.send(embed=embed)
+    await ctx.message.delete()
 
 
 @commands.is_owner()
